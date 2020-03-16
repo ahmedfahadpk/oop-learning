@@ -1,1 +1,32 @@
 /* css styling of the page will go here  */
+
+body {
+    height: 50000px;
+}
+
+/* give elements fixed positioning so they
+wont be affected by vertical scrolling */
+img,
+#background {
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+#bird {
+    top: 40%;
+    width: 300px;
+}
+
+#background {
+    height: 100%;
+    width: 100%;
+    background-image: url('../assets/img/bg.png');
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    background-size: auto 100%;
+} 
+
+#pipe {
+    top: 254px;
+}
