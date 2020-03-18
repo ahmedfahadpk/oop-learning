@@ -13,9 +13,8 @@ img,
     top: 0;
 }
 
-#bird {
-    top: 40%;
-    width: 300px;
+#pipe {
+    left: 5000px;
 }
 
 #background {
@@ -26,7 +25,3 @@ img,
     background-position: 0 0;
     background-size: auto 100%;
 } 
-
-#pipe {
-    top: 254px;
-}
