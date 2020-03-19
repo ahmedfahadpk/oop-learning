@@ -13,11 +13,6 @@ img,
     top: 0;
 }
 
-#bird {
-    top: 40%;
-    width: 300px;
-}
-
 #background {
     height: 100%;
     width: 100%;
@@ -25,8 +20,4 @@ img,
     background-repeat: repeat-x;
     background-position: 0 0;
     background-size: auto 100%;
-} 
-
-#pipe {
-    top: 254px;
 }
