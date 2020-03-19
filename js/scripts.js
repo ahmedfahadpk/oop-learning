@@ -83,64 +83,50 @@ $(document).ready(function(){
         };
     }
 
-    var pipe1 = makePipe(),
-        pipe2 = makePipe(),
-        pipe3 = makePipe(),
-        pipe4 = makePipe(),
-        pipe5 = makePipe(),
-        pipe6 = makePipe(),
-        pipe7 = makePipe();
+    function renderElements(){
+        window.birds = [];
+        window.pipes = [];
+        window.flippedPipes = [];
 
-    pipe1.init();
-    pipe2.init();
-    pipe3.init();
-    pipe4.init();
-    pipe5.init();
-    pipe6.init();
-    pipe7.init(true);
+        for (var i=0; i<10; i++) {
+            window.birds[i] = makeBird();
+            window.birds[i].init();
+        }
+        
+        for (var i=0; i<10; i++) {
+            window.pipes[i] = makePipe();
+            window.pipes[i].init();
+        }
 
-    var bird1 = makeBird(),
-        bird2 = makeBird(),
-        bird3 = makeBird(),
-        bird4 = makeBird();
+        for (var i=0; i<10; i++) {
+            window.flippedPipes[i] = makePipe();
+            window.flippedPipes[i].init(true);
+        }
+    }
 
-    bird1.init();
-    bird2.init();
-    bird3.init();
-    bird4.init();
+    renderElements();
     
     $(window).scroll(function(event) {
         var offset = $(window).scrollTop();
         // $(window).scrollTop gives you the distance
         // to the top of the page
         var imgX = offset / 50;
+
+        for (var i=0; i<window.birds.length; i++){
+            window.birds[i].fly(offset);
+        }
+
+        for (var i=0; i<window.pipes.length; i++){
+            window.pipes[i].moveLeft(offset);
+        }
+
+        for (var i=0; i<window.flippedPipes.length; i++){
+            window.flippedPipes[i].moveLeft(offset);
+        }
         
         console.log(imgX);
         // move these elements sideway
         $('#background').css('background-position', imgX + 'px 0px');
-        bird1.fly(offset);
-        bird2.fly(offset);
-        bird3.fly(offset);
-        bird4.fly(offset);
-
-        pipe1.moveLeft(offset);
-        pipe2.moveLeft(offset);
-        pipe3.moveLeft(offset);
-        pipe4.moveLeft(offset);
-        pipe5.moveLeft(offset);
-        pipe6.moveLeft(offset);
-
-        $(document).on('click', flyUp);
-    
-        function flyDown(){
-            $('#bird').attr('style', 'transform: rotate(45deg)');
-            $('#bird').animate({ 'top': '+=100px' }, 500 ); 
-        }
-    
-        function flyUp(){ 
-            $('#bird').animate({ 'top': '-=100px' }, 500 ); 
-            flyDown();
-        }
     });    
 });
 
